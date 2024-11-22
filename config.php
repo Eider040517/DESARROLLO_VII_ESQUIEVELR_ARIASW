@@ -27,8 +27,10 @@ function loadEnv($path) {
 // Load environment variables
 loadEnv(__DIR__ . '/.env');
 
+// Define the base path for includes
+define('BASE_PATH', __DIR__ . '/');
 // Define constants using environment variables
-define('BASE_URL', getenv('BASE_URL'));
+define('BASE_URL',getenv('BASE_URL') );
 define('DB_HOST', getenv('DB_HOST'));
 define('DB_NAME', getenv('DB_NAME'));
 define('DB_USER', getenv('DB_USER'));

@@ -1,0 +1,82 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo del body */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Sección de perfil */
+.profile {
+  max-width: 800px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.profile h2 {
+  margin-bottom: 10px;
+  color: #4CAF50;
+  border-bottom: 2px solid #4CAF50;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Información del perfil */
+.profile-info p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+/* Listado de recetas */
+.recipe-list {
+  margin-top: 30px;
+}
+
+.recipe-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-item {
+  background: #f0f0f0;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-item h3 {
+  margin-bottom: 5px;
+  color: #4CAF50;
+}
+
+.recipe-item a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.recipe-item a:hover {
+  color: #4CAF50;
+}
