@@ -1,0 +1,9 @@
+body{
+  background-color: white;
+}
+
+.register_form{
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+}

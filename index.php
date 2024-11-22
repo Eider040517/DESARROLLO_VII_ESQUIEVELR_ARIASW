@@ -4,13 +4,19 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Define the base path for includes
-define('BASE_PATH', __DIR__ . '/');
+session_start();
+
+
 
 // Include the configuration file
-require_once BASE_PATH . 'config.php';
+require_once __DIR__ . '/config.php';
 
 // Include necessary files
 require_once BASE_PATH . 'src/model/DataBase.php';
 
-require BASE_PATH . 'view/layout.php';
+if (isset($_SESSION['user_id'])) {
+
+  header('Location: view/home.php');
+} else {
+  header('Location: view/login.php');
+}

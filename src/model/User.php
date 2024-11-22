@@ -11,15 +11,16 @@ class User
         $this->pdo = Database::getInstance()->getConnection();
     }
     //Se crea el usuario por medio de registro
-    public function CreateUserRegister($userInfo)
+    public function CreateUserRegister($username, $email, $password)
     {
         $sql = " INSERT INTO user (username,email,password) VALUES (:username,:email,:password) ";
         try {
+
             // Preparar la consulta con ON DUPLICATE KEY UPDATE
             if ($stm = $this->pdo->prepare($sql)) {
-                $stm->bindParam(":username", $userInfo['username']);
-                $stm->bindParam(":email", $userInfo['email']);
-                $stm->bindParam(":password", $userInfo['password']);
+                $stm->bindParam(":username", $username);
+                $stm->bindParam(":email", $email);
+                $stm->bindParam(":password", $password);
                 $success = $stm->execute();
                 if ($success) {
                     echo "Usuario Guaradado";
@@ -35,23 +36,69 @@ class User
         }
     }
 
-    public function isLoginUser($userInfo)
+    public function isLoginUser($email)
     {
-        $sql = "SELECT password FROM user WHERE email = :email AND username = :username";
+        $sql = "SELECT password FROM user WHERE email = :email ";
         try {
             if ($stm = $this->pdo->prepare($sql)) {
-                $stm->bindParam(':email', $userInfo['email']);
-                $stm->bindParam(':username', $userInfo['username']);
+                $stm->bindParam(':email', $email);
                 $stm->execute();
-                $resp = $stm->fetchColumn();
-                if (password_verify($userInfo['password'],$resp)) {
-                    return true;
-                } else {
-                    return $resp .'</br>';
-                }
+                return $stm->fetchColumn() > 0;
             }
         } catch (PDOException $e) {
             echo "Error al verificar usario: " . $e->getMessage();
         }
     }
+
+    public function login($email, $password)
+    {
+        $sql = "SELECT id AS user_id ,username,email AS user_email,password FROM user WHERE email = :email ";
+        try {
+            $stm = $this->pdo->prepare($sql);
+            $stm->bindParam(':email', $email);
+            $stm->execute();
+
+            $user = $stm->fetch(PDO::FETCH_ASSOC); // Obtener un array asociativo con id y password
+
+            if ($user) {
+                // Validar la contraseña
+                if (password_verify($password, $user['password'])) {
+                    return $user; // Retorna el usuario si el login es exitoso
+                } else {
+                    return false; // Contraseña incorrecta
+                }
+            } else {
+                return false; // Usuario no encontrado
+            }
+        } catch (PDOException $e) {
+            echo "Error al logiar usario: " . $e->getMessage();
+        }
+    }
+
+    public function getUserData($user_id)
+    {
+        $sql = "SELECT username , email AS user_email , create_time AS user_create_time 
+                    FROM user
+                WHERE id = :id;
+        ";
+
+        try {
+            if ($stm = $this->pdo->prepare($sql)) {
+                $stm->bindParam(":id", $user_id);
+                $success = $stm->execute();
+                $usuario = $stm->fetchAll(PDO::FETCH_ASSOC);
+                if ($success) {
+                    return $usuario;
+                } else {
+                    return "Datos del usuario";
+                }
+            }
+            unset($stm);
+        } catch (Exception $e) {
+            echo "Error al buscar el usuario: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    
 }

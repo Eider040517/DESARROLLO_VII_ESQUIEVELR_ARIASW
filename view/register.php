@@ -1,23 +1,30 @@
 <?php
 // Iniciamos el buffer de salida
 ob_start();
-$message = '';
 ?>
 <div class="content_modal">
   <div class="modal_form">
     <header>
       <h2>
-        Login
+      Register
       </h2>
     </header>
     <main>
-      <form class="content_form" method="post" action="/src/controller/userController.php">
-        <input type="hidden" value="login" name="action">
+      <form class="register_form" id="register_form" method="post" action="/src/controller/userController.php">
+        <input type="hidden" name="action" value="register">
+        <label for="username">Nombre de usario:</label>
+        <input type="text" id="username" name="username" required>
+
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" name="email" required>
 
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
+
+        <label for="password">Repita la contraseña:</label>
+        <input type="password" id="password_repeat" name="password_repeat" required>
+
+        <div id="passwordError" style="color: red; display: none;">Las contraseñas no coinciden.</div>
 
         <button type="submit">Iniciar Sesión</button>
       </form>
@@ -29,10 +36,9 @@ $message = '';
           </form>
         </li>
       </ul>
+
     </main>
-    <footer>
-      <a href="/view/register.php">Crear Cuenta</a>
-    </footer>
+    <footer></footer>
   </div>
   <div class="bg_modal"></div>
 </div>
@@ -40,5 +46,5 @@ $message = '';
 // Guardamos el contenido del buffer en la variable $content
 $content = ob_get_clean();
 // Incluimos el layout
-require __DIR__ . '/template/layout.php';
+require '/templeate/layout.php';
 ?>

@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../../config.php';
 class Database
 
 {
@@ -37,7 +38,7 @@ class Database
   {
     return $this->conn;
   }
-  public function unsetPDO(){
+  public function unstepDO(){
     unset($this->conn);
   }
 }
