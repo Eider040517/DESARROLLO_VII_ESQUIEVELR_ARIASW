@@ -1,7 +1,7 @@
 <?php
 // Iniciamos el buffer de salida
 ob_start();
-$message = '';
+
 ?>
 <div class="content_modal">
   <div class="modal_form">
@@ -11,16 +11,20 @@ $message = '';
       </h2>
     </header>
     <main>
+      <!-- Formulario par inicio de sesion -->
       <form class="content_form" method="post" action="/src/controller/userController.php">
-        <input type="hidden" value="login" name="action">
+
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" name="email" required>
 
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="submit">Iniciar Sesión</button>
+        <a href="#"></a>
+
+        <button type="submit" name="action" value="login">Iniciar Sesión</button>
       </form>
+      <!-- Listado de tipos de inicio de session por medio de servicios -->
       <ul>
         <li>
           <form action="" method="get">
@@ -31,7 +35,9 @@ $message = '';
       </ul>
     </main>
     <footer>
-      <a href="/view/register.php">Crear Cuenta</a>
+      <a href="/view/login/resetAcount.php">Recupera tu contraseña</a>
+      <span> </span>
+      <a href="/view/login/register.php">Crear Cuenta</a>
     </footer>
   </div>
   <div class="bg_modal"></div>

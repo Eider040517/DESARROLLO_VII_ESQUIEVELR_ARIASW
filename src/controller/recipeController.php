@@ -6,6 +6,7 @@ $action = isset($_POST['action']) ? $_POST['action'] : "";
 $recipe_id = isset($_POST['recipe_id']) ? $_POST['recipe_id'] : "";
 
 switch ($action) {
+
   case 'update':
 
     $recipeInfo = $_POST['recipeInfo'];
@@ -18,7 +19,7 @@ switch ($action) {
     break;
 
   case 'edit':
-    $recipeData =$recipeService->ConsultRecipe($recipe_id);
+    $recipeData = $recipeService->ConsultRecipe($recipe_id);
 
     $recipeInfo = $recipeData['info'];
     $ingredientInfo = $recipeData['ingredient'];
