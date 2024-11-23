@@ -1,16 +1,17 @@
 <?php
 // Iniciamos el buffer de salida
+
 ob_start();
 ?>
 <div class="content_modal">
   <div class="modal_form">
     <header>
       <h2>
-      Register
+        Register
       </h2>
     </header>
     <main>
-      <form class="register_form" id="register_form" method="post" action="/src/controller/userController.php">
+      <form class="content_form" id="content_form" method="post" action="/src/controller/userController.php">
         <input type="hidden" name="action" value="register">
         <label for="username">Nombre de usario:</label>
         <input type="text" id="username" name="username" required>
@@ -26,7 +27,7 @@ ob_start();
 
         <div id="passwordError" style="color: red; display: none;">Las contraseñas no coinciden.</div>
 
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit">Registrar</button>
       </form>
       <ul>
         <li>
@@ -46,5 +47,5 @@ ob_start();
 // Guardamos el contenido del buffer en la variable $content
 $content = ob_get_clean();
 // Incluimos el layout
-require '/templeate/layout.php';
+require __DIR__ . '/../template/layout.php';
 ?>

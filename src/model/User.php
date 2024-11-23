@@ -38,15 +38,44 @@ class User
 
     public function isLoginUser($email)
     {
-        $sql = "SELECT password FROM user WHERE email = :email ";
+        $sql = "SELECT id FROM user WHERE email = :email ";
         try {
             if ($stm = $this->pdo->prepare($sql)) {
                 $stm->bindParam(':email', $email);
                 $stm->execute();
-                return $stm->fetchColumn() > 0;
+                $user = $stm->fetch();
+                if ($user) {
+                    return $user['id'];
+                } else {
+                    return null;
+                }
             }
         } catch (PDOException $e) {
             echo "Error al verificar usario: " . $e->getMessage();
+        }
+    }
+
+    public function UpdatePassword($user_id, $password)
+    {
+        $sql = "UPDATE user SET 
+            password = :password 
+        WHERE id = :id";
+        try {
+            if ($stm = $this->pdo->prepare($sql)) {
+                $stm->bindParam(":id", $user_id);
+                $stm->bindParam(":password", $password);
+                $success = $stm->execute();
+                if ($success) {
+                    echo "Password Actualizado";
+                    return true;
+                } else {
+                    echo "Password No Actualizado";
+                }
+            }
+            unset($stm);
+        } catch (Exception $e) {
+            echo "Error al modificar el password: " . $e->getMessage();
+            return false;
         }
     }
 
@@ -99,6 +128,4 @@ class User
             return false;
         }
     }
-
-    
 }

@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `recetas` (
   `descripcion` text,
   `categoria` varchar(50) DEFAULT NULL,
   `tiempo_preparacion` int DEFAULT NULL,
+  `imagen` varchar(255) NULL,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),

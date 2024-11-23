@@ -1,4 +1,4 @@
-document.getElementById('register_form').addEventListener('input', function () {
+document.getElementById('content_form').addEventListener('input', function () {
   console.log('hola estoy probando');
     const password = document.getElementById('password').value;
     const repeatPassword = document.getElementById('password_repeat').value;
@@ -15,7 +15,7 @@ document.getElementById('register_form').addEventListener('input', function () {
     }
 });
 
-document.getElementById('register_form').addEventListener('submit', function (event) {
+document.getElementById('content_form').addEventListener('submit', function (event) {
     const password = document.getElementById('password').value;
     const repeatPassword = document.getElementById('password_repeat').value;
 

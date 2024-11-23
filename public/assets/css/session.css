@@ -1,0 +1,135 @@
+/* Estilo general */
+*{
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f3f4f6;
+}
+
+
+/* Estilo para el login*/
+
+/* Contenedor del modal */
+.content_modal {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fondo oscuro del modal */
+.bg_modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Contenedor del formulario */
+.modal_form {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Encabezado */
+.modal_form header h2 {
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Estilo del formulario */
+.content_form label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+}
+.content_form input[type="text"],
+.content_form input[type="email"],
+.content_form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.content_form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content_form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Botón de Google */
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.google-btn {
+  background-color: #db4437;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.google-btn:hover {
+  background-color: #c33d2e;
+}
+
+/* Estilo del footer */
+.modal_form footer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal_form footer a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+.modal_form footer a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
