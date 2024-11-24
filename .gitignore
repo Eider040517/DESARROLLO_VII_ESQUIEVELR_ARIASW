@@ -1,2 +1,4 @@
 # Ignorar .env file
+uploads/
 .env
+.DS_Store

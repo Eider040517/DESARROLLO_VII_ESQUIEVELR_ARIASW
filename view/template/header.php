@@ -1,13 +1,20 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+?>
 <link rel="stylesheet" href="/../public/assets/css/header.css">
+
 <header>
   <div class="content_title">
     <h2>RECIPE</h2>
   </div>
   <div class="content_nav">
     <?php if (isset($_SESSION['user_id'])): ?>
-      <button>
-        Crear
-      </button>
+      <form action="recipe.php" method="get">
+        <button type="submit" name="action" value="create"> Crear</button>
+      </form>
+
       <button id="userButton">
         <?= htmlentities($_SESSION['username']) ?>
       </button>

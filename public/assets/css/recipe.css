@@ -1,4 +1,10 @@
-form {
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe_form {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
@@ -9,7 +15,7 @@ form {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-form h3 {
+.recipe_form h3 {
   margin-top: 20px;
   color: #333;
   font-size: 1.2em;

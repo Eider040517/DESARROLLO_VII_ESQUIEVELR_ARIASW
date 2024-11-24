@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../model/Recipe.php';
 require_once __DIR__ . '/..//model/Ingredients.php';
 require_once __DIR__ . '/../model/Steps.php';
@@ -15,58 +16,74 @@ class RecipeService
     $this->step =  new Steps();
   }
 
-  public function saveRecipe($userId, $data)
+  public function saveRecipe($userId, $recipeInfo, $ingredientinfo, $stepinfo, $fileName)
   {
-    $recipeinfo = $data['info'];
-    $ingredientinfo = $data['ingredient'];
-    $stepinfo = $data['step'];
     try {
-      $idRecipe = $this->recipe->CreatRecipe($userId, $recipeinfo);
+      $idRecipe = $this->recipe->CreatRecipe($userId, $recipeInfo, $fileName);
       if ($idRecipe) {
         foreach ($ingredientinfo as $int) {
-          $this->ingredient->CreateIngredients($idRecipe, $int['ingrediente_nombre']);
+          $this->ingredient->CreateIngredients($idRecipe, $int['ingredient_name']);
         }
 
         foreach ($stepinfo as $value) {
           $this->step->CreateStep($idRecipe, $value);
         }
+
+        // Mensaje de éxito al registrar la receta
+        MessageManager::addMessage(MessageManager::TYPE_SUCCESS, 'recipe', 'Receta registrada exitosamente.');
+      } else {
+        // Mensaje de error si no se crea la receta
+        MessageManager::addMessage(MessageManager::TYPE_ERROR, 'recipe', 'Error al crear la receta.');
       }
     } catch (Exception $e) {
-      return "Error: Error al registrar receta. " . $e->getMessage();
+      // Mensaje de error si ocurre una excepción
+      MessageManager::addMessage(MessageManager::TYPE_ERROR, ' recipe', 'Error: ' . $e->getMessage());
     }
   }
 
-  public function UpdateRecipe($recipe_id,$recipeInfo,$ingredientInfo,$stepinfo)
+
+
+  public function UpdateRecipe($recipeInfo, $ingredientInfo, $stepinfo, $filename)
   {
     try {
-      if ($this->recipe->UpdateRecipe($recipeInfo)) {
+      if ($this->recipe->UpdateRecipe($recipeInfo, $filename)) {
         foreach ($ingredientInfo as $ingredientData) {
-          if ($ingredientData['ingrediente_id'] === null) {
-            $this->ingredient->CreateIngredients($recipe_id, $ingredientData['ingrediente_nombre']);
+          if (!isset($ingredientData['ingredient_id'])) {
+            $this->ingredient->CreateIngredients($recipeInfo['recipe_id'], $ingredientData['ingredient_name']);
           } else {
             $this->ingredient->UpdateIngredients($ingredientData);
           }
         }
 
         foreach ($stepinfo as $stepData) {
-          if ($stepData['paso_id'] === null) {
-            $this->step->CreateStep($recipe_id, $stepData);
+          if (!isset($stepData['step_id'])) {
+            $this->step->CreateStep($recipeInfo['recipe_id'], $stepData);
           } else {
             $this->step->UpdateStep($stepData);
           }
         }
+        // Mensaje de éxito al actualizar la receta
+        MessageManager::addMessage(MessageManager::TYPE_SUCCESS, 'recipe', 'Receta actualizada exitosamente.');
+      } else {
+        // Mensaje de error si no se actualiza la receta
+        MessageManager::addMessage(MessageManager::TYPE_ERROR, 'recipe', 'Error al actualizar la receta.');
       }
     } catch (Exception $e) {
-      return "Error: Error al registrar receta. " . $e->getMessage();
+      // Mensaje de error si ocurre una excepción
+      MessageManager::addMessage(MessageManager::TYPE_ERROR, 'recipe', 'Error: ' . $e->getMessage());
     }
   }
 
-  public function DelectRecipe($idRecipe)
+
+  public function DeleteRecipe($idRecipe)
   {
     try {
       $this->recipe->DeleteRecipe($idRecipe);
+      // Mensaje de éxito al eliminar la receta
+      MessageManager::addMessage(MessageManager::TYPE_SUCCESS, 'create', 'Receta eliminada exitosamente.');
     } catch (Exception $e) {
-      echo "ERROR: En la eliminacion de la receta" . $e->getMessage();
+      // Mensaje de error si ocurre una excepción
+      MessageManager::addMessage(MessageManager::TYPE_ERROR, 'create', 'Error al eliminar la receta: ' . $e->getMessage());
     }
   }
 
@@ -82,9 +99,13 @@ class RecipeService
           'ingredient' => $ingredientInfo,
           'step' => $stepInfo
         ];
+      } else {
+        // Mensaje de error si no se encuentra la receta
+        MessageManager::addMessage(MessageManager::TYPE_ERROR, 'recipe', 'Receta no encontrada.');
       }
     } catch (Exception $e) {
-      echo "Error al conultar Receta" . $e->getMessage();
+      // Mensaje de error si ocurre una excepción
+      MessageManager::addMessage(MessageManager::TYPE_ERROR, 'recipe', 'Error al consultar receta: ' . $e->getMessage());
     }
   }
 }

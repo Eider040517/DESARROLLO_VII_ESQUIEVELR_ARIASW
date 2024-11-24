@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     agregarIngredienteBtn.addEventListener('click', () => {
         const nuevoIngrediente = document.createElement('div');
         nuevoIngrediente.classList.add('ingrediente');
+        const numeroIngrediente = ingredientesContainer.children.length;
         nuevoIngrediente.innerHTML = `
-            <input type="text" name="ingredientes[]" placeholder="Nuevo ingrediente" required>
+            <input type="text" name="ingredientInfo[${numeroIngrediente}][ingredient_name]" placeholder="Ingrediente ${numeroIngrediente + 1}" required>
             <button type="button" class="eliminar-btn">Eliminar</button>
         `;
         ingredientesContainer.appendChild(nuevoIngrediente);
@@ -24,9 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     agregarPasoBtn.addEventListener('click', () => {
         const nuevoPaso = document.createElement('div');
         nuevoPaso.classList.add('paso');
-        const numeroPaso = pasosContainer.children.length + 1;
+        const numeroPaso = pasosContainer.children.length;
         nuevoPaso.innerHTML = `
-            <input type="text" name="pasos[]" placeholder="Paso ${numeroPaso}" required>
+            <input type="hidden" name="stepInfo[${numeroPaso}][step_number]" value="${numeroPaso}">
+            <input type="text" name="stepInfo[${numeroPaso}][step_description]" placeholder="Paso ${numeroPaso + 1}" required>
             <button type="button" class="eliminar-btn">Eliminar</button>
         `;
         pasosContainer.appendChild(nuevoPaso);
