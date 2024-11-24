@@ -1,5 +1,20 @@
 <?php
 require_once __DIR__ . '/../src/controller/userDataController.php';
+require_once __DIR__ . '/../src/message/messageManager.php';
+
+// Mostrar mensajes (tanto de error como de éxito) si existen
+$errorMessages =  MessageManager::getMessages('error', 'recipe');
+$successMessages = MessageManager::getMessages('success', 'recipe');
+$allMessages = [];
+
+if ($errorMessages) {
+  $messageType = 'alert-error';
+  $allMessages = $errorMessages;
+} elseif ($successMessages) {
+  $messageType = 'alert-success';
+  $allMessages = $successMessages;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +28,8 @@ require_once __DIR__ . '/../src/controller/userDataController.php';
 </head>
 
 <body>
-  <header class="header">
-    <h1>Bienvenido, <span id="user-name">Nombre del Usuario</span></h1>
-  </header>
+
+  <?php require __DIR__ . '/template/header.php' ?>
 
   <main class="profile">
     <!-- Datos del perfil -->
@@ -26,6 +40,20 @@ require_once __DIR__ . '/../src/controller/userDataController.php';
       <p><strong>Fecha de Registro:</strong> <span id="profile-date"><?= $userData['user_create_time'] ?></span></p>
     </section>
 
+    <?php
+    if ($allMessages) :
+      foreach ($allMessages as $message) :
+    ?>
+        <div class="alert <?php echo $messageType; ?>">
+          <?php echo htmlspecialchars($message); ?>
+        </div>
+    <?php
+      endforeach;
+    endif;
+
+    ?>
+
+
     <!-- Listado de recetas -->
     <section class="recipe-list">
       <h2>Recetas Creadas</h2>
@@ -33,19 +61,17 @@ require_once __DIR__ . '/../src/controller/userDataController.php';
 
         <?php foreach ($recipeData as $data): ?>
           <li class="recipe-item">
-
+            <img src="/uploads/<?= isset($data['recipe_imagen']) ? urldecode($data['recipe_imagen']) : "" ?> " alt="Imagen">
             <h3><?= htmlspecialchars($data['recipe_name']) ?></h3>
             <p> Categoria : <?= htmlspecialchars($data['recipe_category']) ?></p>
             <p>Tiempo de preparación: <?= htmlspecialchars($data['recipe_preparation_time']) ?> minutos</p>
             <form action="/src/controller/recipeController.php" method="post">
-              <input type="hidden" name="action" value="delete">
               <input type="hidden" name="recipe_id" value="<?= $data['recipe_id'] ?>">
-              <button type="submit"> Eliminar</button>
+              <button type="submit" name=" action" value="delete"> Eliminar</button>
             </form>
             <form action="/src/controller/recipeController.php" method="post">
-              <input type="hidden" name="action" value="edit">
               <input type="hidden" name="recipe_id" value="<?= $data['recipe_id'] ?>">
-              <button type="submit"> Modificar</button>
+              <button type="submit" name="action" value="modified"> Modificar</button>
             </form>
           </li>
 

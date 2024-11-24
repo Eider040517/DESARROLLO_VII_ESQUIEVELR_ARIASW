@@ -16,8 +16,8 @@ class Steps
 
       if ($stm = $this->pdo->prepare($sql)) {
         $stm->bindParam(":id_receta", $idRecipe);
-        $stm->bindParam(":numero_paso", $data['paso_numero']);
-        $stm->bindParam(":descripcion", $data['paso_descripcion']);
+        $stm->bindParam(":numero_paso", $data['step_number']);
+        $stm->bindParam(":descripcion", $data['step_description']);
         $success = $stm->execute();
         if ($success) {
           echo "Paso guardado";
@@ -38,8 +38,8 @@ class Steps
     try {
 
       if ($stm = $this->pdo->prepare($sql)) {
-        $stm->bindParam(":numero_paso", $data['paso_numero']);
-        $stm->bindParam(":descripcion", $data['paso_descripcion']);
+        $stm->bindParam(":numero_paso", $data['step_number']);
+        $stm->bindParam(":descripcion", $data['step_descripcion']);
         $stm->bindParam(":id", $data['paso_id']);
         $success = $stm->execute();
         if ($success) {
@@ -64,9 +64,9 @@ class Steps
         $stm->bindParam(":id", $id);
         $success = $stm->execute();
         if ($success) {
-          echo "Paso Eliminar";
+          return true;
         } else {
-          echo "Paso no Eliminado";
+          return false;
         }
       }
       unset($stm);

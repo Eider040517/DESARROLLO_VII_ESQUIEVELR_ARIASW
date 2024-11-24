@@ -40,8 +40,8 @@ class Ingredients
 
     try {
       if ($stm = $this->pdo->prepare($sql)) {
-        $stm->bindParam(":ingrediente", $data['ingrediente_nombre']);
-        $stm->bindParam(":id", $data['ingrediente_id']);
+        $stm->bindParam(":ingrediente", $data['ingredient_name']);
+        $stm->bindParam(":id", $data['ingredient_id']);
         $success = $stm->execute();
         if ($success) {
           echo "Ingrediente modificado";
@@ -55,7 +55,6 @@ class Ingredients
       return false;
     }
   }
-
 
   public function DeleteIngredients($id)
   {

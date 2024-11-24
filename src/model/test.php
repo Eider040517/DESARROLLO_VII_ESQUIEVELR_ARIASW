@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . '/User.php';
+require_once __DIR__ . '/Recipe.php';
 
-$user = new User();
+$recipe = new Recipe();
 
-var_dump($user->isLoginUser('wigudunibalera@gmail.com'));
+
+$recetas = $recipe->searchRecipes('sopa');
+
+print_r($recetas);

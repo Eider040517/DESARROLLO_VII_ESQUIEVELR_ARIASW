@@ -80,3 +80,24 @@ body {
 .recipe-item a:hover {
   color: #4CAF50;
 }
+
+
+/* Mensaje de éxito */
+.alert-success {
+  color: white;
+  background-color: #28a745; /* Verde */
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Mensaje de error */
+.alert-danger {
+  color: white;
+  background-color: #dc3545; /* Rojo */
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
