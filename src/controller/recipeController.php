@@ -39,7 +39,7 @@ switch ($action) {
     header('Location: /view/profile.php');
     break;
   case 'detail':
-
+    header('Location: /view/detailRecipe.php');
     break;
   case 'delete':
     $recipeService->DeleteRecipe($recipe_id);

@@ -3,8 +3,13 @@ const userButton = document.getElementById('userButton');
 const dropdownMenu = document.getElementById('userDropdown');
 
 // Mostrar/ocultar el menú al hacer clic en el botón
-userButton.addEventListener('click', () => {
+userButton.addEventListener('click', (event) => {
+  console.log('Estoy dentro del clik');
+
+  event.stopPropagation();
+  
   const isVisible = dropdownMenu.style.display === 'block';
+  console.log(isVisible);
   dropdownMenu.style.display = isVisible ? 'none' : 'block';
 });
 
