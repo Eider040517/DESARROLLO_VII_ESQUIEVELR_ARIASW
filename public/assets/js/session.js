@@ -39,3 +39,5 @@ document.getElementById('password').addEventListener('input', function () {
     // Habilitar el botón solo si todas las reglas se cumplen
     const allValid = Object.values(rules).every(Boolean);
 });
+
+

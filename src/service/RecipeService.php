@@ -80,10 +80,10 @@ class RecipeService
     try {
       $this->recipe->DeleteRecipe($idRecipe);
       // Mensaje de éxito al eliminar la receta
-      MessageManager::addMessage(MessageManager::TYPE_SUCCESS, 'create', 'Receta eliminada exitosamente.');
+      MessageManager::addMessage(MessageManager::TYPE_SUCCESS, 'recipe', 'Receta eliminada exitosamente.');
     } catch (Exception $e) {
       // Mensaje de error si ocurre una excepción
-      MessageManager::addMessage(MessageManager::TYPE_ERROR, 'create', 'Error al eliminar la receta: ' . $e->getMessage());
+      MessageManager::addMessage(MessageManager::TYPE_ERROR, 'recipe', 'Error al eliminar la receta: ' . $e->getMessage());
     }
   }
 

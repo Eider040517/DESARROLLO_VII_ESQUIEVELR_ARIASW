@@ -105,6 +105,8 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id']) {
     </div>
   </div>
 
+  <?php require __DIR__ . '/template/footer.php' ?>
+
 </body>
 
 </html>

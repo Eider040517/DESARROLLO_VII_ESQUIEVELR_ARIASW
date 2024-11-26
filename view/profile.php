@@ -31,7 +31,7 @@ if ($errorMessages) {
 
   <?php require __DIR__ . '/template/header.php' ?>
 
-  <main class="profile">
+  <main>
     <!-- Datos del perfil -->
     <section class="profile-info">
       <h2>Información del Perfil</h2>
@@ -54,31 +54,45 @@ if ($errorMessages) {
     ?>
 
 
+
+
     <!-- Listado de recetas -->
     <section class="recipe-list">
-      <h2>Recetas Creadas</h2>
+      <h2>Mis Recetas</h2>
       <ul id="recipes">
 
         <?php foreach ($recipeData as $data): ?>
           <li class="recipe-item">
-            <img src="/uploads/<?= isset($data['recipe_imagen']) ? urldecode($data['recipe_imagen']) : "" ?> " alt="Imagen">
-            <h3><?= htmlspecialchars($data['recipe_name']) ?></h3>
-            <p> Categoria : <?= htmlspecialchars($data['recipe_category']) ?></p>
-            <p>Tiempo de preparación: <?= htmlspecialchars($data['recipe_preparation_time']) ?> minutos</p>
-            <form action="/src/controller/recipeController.php" method="post">
-              <input type="hidden" name="recipe_id" value="<?= $data['recipe_id'] ?>">
-              <button type="submit" name=" action" value="delete"> Eliminar</button>
-            </form>
-            <form action="/src/controller/recipeController.php" method="post">
-              <input type="hidden" name="recipe_id" value="<?= $data['recipe_id'] ?>">
-              <button type="submit" name="action" value="modified"> Modificar</button>
-            </form>
+            <div class="recipe-img">
+              <img src="/uploads/<?= isset($data['recipe_imagen']) ? urldecode($data['recipe_imagen']) : "" ?> " alt="Imagen">
+            </div>
+            <div class="recipe-info">
+              <div class="recipe-info_data">
+                <h3><?= htmlspecialchars($data['recipe_name']) ?></h3>
+                <p> Categoria : <?= htmlspecialchars($data['recipe_category']) ?></p>
+                <p>Tiempo de preparación: <?= htmlspecialchars($data['recipe_preparation_time']) ?> minutos</p>
+              </div>
+
+              <div class="recipe-action">
+                <form action="/src/controller/recipeController.php" method="post">
+                  <input type="hidden" name="recipe_id" value="<?= $data['recipe_id'] ?>">
+                  <button class="recipe-btn btn-red" type="submit" name=" action" value="delete"> Eliminar</button>
+                </form>
+                <form action="/src/controller/recipeController.php" method="post">
+                  <input type="hidden" name="recipe_id" value="<?= $data['recipe_id'] ?>">
+                  <button class="recipe-btn btn-orange" type="submit" name="action" value="modified"> Modificar</button>
+                </form>
+              </div>
+
+            </div>
+
           </li>
 
         <?php endforeach ?>
       </ul>
     </section>
   </main>
+  <?php require __DIR__ . '/template/footer.php' ?>
 </body>
 
 </html>

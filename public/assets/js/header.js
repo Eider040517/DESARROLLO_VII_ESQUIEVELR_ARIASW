@@ -24,3 +24,10 @@ document.getElementById('logoutLink').addEventListener('click', (event) => {
   event.preventDefault(); // Evita que el enlace se comporte como un link estándar
   document.getElementById('logoutForm').submit(); // Envía el formulario
 });
+
+function header(event){
+  event.preventDefault(); // Evita que el enlace se comporte como un link estándar
+  document.getElementById('recipeForm').submit();
+}
+
+

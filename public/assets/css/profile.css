@@ -9,14 +9,26 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
+  background-color: #FFFFFF;
   color: #333;
-  padding: 20px;
+}
+
+main {
+  width: 70rem;
+  margin: 0 auto;
+}
+
+button {
+  -webkit-appearance: button;
+  background-color: initial;
+  background-image: none;
+  cursor: pointer;
+  border: none;
 }
 
 /* Header */
 .header {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -36,8 +48,8 @@ body {
 /* Títulos */
 .profile h2 {
   margin-bottom: 10px;
-  color: #4CAF50;
-  border-bottom: 2px solid #4CAF50;
+  color: #4caf50;
+  border-bottom: 2px solid #4caf50;
   display: inline-block;
   padding-bottom: 5px;
 }
@@ -49,8 +61,11 @@ body {
 }
 
 /* Listado de recetas */
+
 .recipe-list {
-  margin-top: 30px;
+  width: 100%;
+  height: auto;
+  margin-top: 5rem;
 }
 
 .recipe-list ul {
@@ -59,16 +74,64 @@ body {
 }
 
 .recipe-item {
-  background: #f0f0f0;
-  margin: 10px 0;
+  display: flex;
+  width: 100%;
+  height: 200px;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.recipe-img {
+  width: 250px;
+  position: relative;
+}
+.recipe-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.recipe-info {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
   padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-action {
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  margin-right: 20px;
+}
+
+.recipe-btn {
+  width: auto;
+  height: 40px;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  padding: 0 2rem;
+}
+
+.btn-orange {
+  background-color: #ff9933;
+  color: white;
+}
+
+.btn-red {
+  --tw-border-opacity: 1;
+  --tw-text-opacity: 1;
+  border: 2px solid;
+  border-color: rgb(254 70 58 / var(--tw-border-opacity));
+  color: rgb(254 70 58 / var(--tw-text-opacity));
+  font-weight: 600;
 }
 
 .recipe-item h3 {
   margin-bottom: 5px;
-  color: #4CAF50;
+  color: black;
 }
 
 .recipe-item a {
@@ -78,9 +141,8 @@ body {
 }
 
 .recipe-item a:hover {
-  color: #4CAF50;
+  color: #4caf50;
 }
-
 
 /* Mensaje de éxito */
 .alert-success {
