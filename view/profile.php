@@ -33,11 +33,20 @@ if ($errorMessages) {
 
   <main>
     <!-- Datos del perfil -->
-    <section class="profile-info">
-      <h2>Información del Perfil</h2>
-      <p><strong>Nombre:</strong> <span id="profile-name"><?= htmlspecialchars($userData['username']) ?></span></p>
-      <p><strong>Email:</strong> <span id="profile-email"><?= htmlspecialchars($userData['user_email']) ?></span></p>
-      <p><strong>Fecha de Registro:</strong> <span id="profile-date"><?= $userData['user_create_time'] ?></span></p>
+    <section class="profile">
+      <div class="profile-img">
+        <div>
+          <span>
+            W
+          </span>
+        </div>
+      </div>
+      <div class="profile-info">
+        <h2> <strong> <span id="profile-name"><?= htmlspecialchars($userData['username']) ?></span> </strong></h2>
+        <p> <span id="profile-email"><?= htmlspecialchars($userData['user_email']) ?></span></p>
+        <p></strong> <span id="profile-date"><?= $userData['user_create_time'] ?></span></p>
+      </div>
+
     </section>
 
     <?php

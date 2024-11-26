@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: black;
 }
 
 /* Estilo del body */
@@ -36,27 +37,47 @@ button {
 }
 
 /* Sección de perfil */
+
 .profile {
-  max-width: 800px;
-  margin: 20px auto;
+  display: flex; 
+  align-items: center;
+  max-width: 100%;
+  margin: 3rem auto;
   background: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(206 206 205/var(--tw-border-opacity));
 }
+
+.profile-img div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 6rem;
+  height: 6rem;
+  background-color: #024D40;
+  border-radius: 50%;
+}
+
+.profile-img div span {
+  font-size:  2.5rem;
+  color: white;
+}
+
+
 
 /* Títulos */
 .profile h2 {
-  margin-bottom: 10px;
-  color: #4caf50;
-  border-bottom: 2px solid #4caf50;
-  display: inline-block;
-  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 /* Información del perfil */
 .profile-info p {
-  margin: 10px 0;
+  --tw-text-opacity: 1;
+  color: rgb(147 146 144/var(--tw-text-opacity));
   font-size: 1rem;
 }
 
@@ -65,7 +86,7 @@ button {
 .recipe-list {
   width: 100%;
   height: auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .recipe-list ul {

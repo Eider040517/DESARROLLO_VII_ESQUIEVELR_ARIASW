@@ -148,8 +148,8 @@ vertical-align: middle;
 }
 .card-container {
   display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  column-gap: 2rem;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  column-gap: 2.5rem;
 }
 
 
