@@ -9,21 +9,28 @@ ob_start();
       <h2>
         Login
       </h2>
+      <p>
+        ¡Haz que cocinar todos los días sea divertido!
+      </p>
     </header>
     <main>
       <!-- Formulario par inicio de sesion -->
       <form class="content_form" method="post" action="/src/controller/userController.php">
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="Correo Electonico" required>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
 
-        <a href="#"></a>
 
         <button type="submit" name="action" value="login">Iniciar Sesión</button>
       </form>
+
+      <a href="/view/login/resetAcount.php">Recupera tu contraseña</a>
+      <div class="content-span">
+        <span class="border-span"></span>
+        <span class="px-sm">or</span>
+        <span class="border-span"></span>
+      </div>
       <!-- Listado de tipos de inicio de session por medio de servicios -->
       <ul>
         <li>
@@ -35,12 +42,10 @@ ob_start();
       </ul>
     </main>
     <footer>
-      <a href="/view/login/resetAcount.php">Recupera tu contraseña</a>
-      <span> </span>
+      <span> ¿Aún no tienes cuenta?</span>
       <a href="/view/login/register.php">Crear Cuenta</a>
     </footer>
   </div>
-  <div class="bg_modal"></div>
 </div>
 <?php
 // Guardamos el contenido del buffer en la variable $content

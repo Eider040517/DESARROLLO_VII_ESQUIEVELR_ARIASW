@@ -2,11 +2,11 @@ header {
   width: 100%;
   height: 5em;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
-  padding: 0  10rem;
+  padding: 0 10rem;
+  box-sizing: border-box;
 }
-
 
 .logo-header {
   height: 100%;
@@ -15,7 +15,7 @@ header {
 .logo-header img {
   height: 100%;
 }
-.content_nav{
+.content_nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,25 +23,29 @@ header {
   gap: 1rem;
 }
 
-
 .btn_create-recipe {
   width: auto;
   height: 40px;
   padding: 5px 10px;
   border: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: #ff9933;
   color: white;
   font-size: 18px;
 }
+.btn_create-recipe:hover {
+  border: 1px solid #ff9933;
+  background-color: white ;
+  color: #ff9933;
+}
 
-.btn_create-recipe div{
+.btn_create-recipe div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.btn_create-recipe div span{
+.btn_create-recipe div span {
   margin-left: 5px;
 }
 .btn_inicio_session {
@@ -84,27 +88,31 @@ header {
 }
 
 .dropdown-menu ul li a:hover {
-  background-color: #f5f5f5;
+  color: #ff9933;
 }
-
 
 /* Botón para activar el dropdown */
 #userButton {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   padding: 5px;
-  background-color:#cccccc ;
+  background-color: #6f6f6f;
   cursor: pointer;
   border: none;
   border-radius: 50%;
 }
 
- #userButton img svg{
+#userButton img svg {
   pointer-events: none;
   width: 100%;
   height: auto;
- }
+}
+#userButton path {
+  fill: #cdcdcd;
+}
 
-#userButton:hover {
-  background-color: #0056b3;
+#userButton:hover,
+#userButton:hover path {
+  fill: white;
+  background-color: #ff9933;
 }

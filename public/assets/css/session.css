@@ -11,7 +11,8 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  background-color: #f3f4f6;
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 74 74/var(--tw-bg-opacity));
 }
 
 
@@ -27,35 +28,41 @@ body {
   height: 100%;
 }
 
-/* Fondo oscuro del modal */
-.bg_modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
+
 
 /* Contenedor del formulario */
 .modal_form {
   position: relative;
-  background: #fff;
+  background: #F8F6F2;
   padding: 20px;
-  width: 100%;
-  max-width: 400px;
+  width: 400px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
+.modal_form header {
+  margin: 1rem 0;
+  line-height: 1.25;
+  text-align: center;
+}
 
 /* Encabezado */
 .modal_form header h2 {
+  font-size: 1.75rem;
+  letter-spacing: -.025em;
+  line-height: 2.25rem;
   margin: 0 0 20px;
-  font-size: 1.5rem;
   color: #333;
   text-align: center;
+}
+
+.modal_form > main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content_form {
+  width: 100%;
 }
 
 /* Estilo del formulario */
@@ -71,14 +78,27 @@ body {
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 0.9rem;
+
+  --tw-shadow: 0 0 0 1px #0000000d;
+  --tw-shadow-colored: 0 0 0 1px var(--tw-shadow-color);
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  align-items: center;
+  background-color: rgb(255 255 255/var(--tw-bg-opacity));
+  border-radius: .25rem;
+  border-width: 0;
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+  color: rgb(147 146 144/var(--tw-text-opacity));
+  display: flex;
+  font-size: 1rem;
+  letter-spacing: -.025em;
+  line-height: 1.5rem;
 }
 
 .content_form button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #FF9932;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -88,18 +108,57 @@ body {
 }
 
 .content_form button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #ee8e2e;
+}
+
+#passwordError {
+  margin: 10px 0;
+}
+
+
+main > a {
+  color: inherit;
+  text-decoration: inherit;
+  padding-top: 1rem;
+  font-size: 1rem;
+  letter-spacing: -.025em;
+  line-height: 1.5rem;
+  font-weight: 500;
+  text-decoration-line: underline;
+}
+
+.content-span {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.border-span {
+  --tw-border-opacity: 1;
+  border-color: rgb(147 146 144/var(--tw-border-opacity));
+  border-top: 1px;
+  border-top-width: 1px;
+  flex-grow: 1; 
 }
 
 /* Botón de Google */
 ul{
+  width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .google-btn {
-  background-color: #db4437;
-  color: white;
+border: 1px solid #ccc;
+
+  --tw-shadow: 0 0 0 1px #0000000d;
+  --tw-shadow-colored: 0 0 0 1px var(--tw-shadow-color);
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #03030300),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+  --tw-bg-opacity: .5;
+  background-color: rgb(255 255 255/var(--tw-bg-opacity));
+  color: #555;
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -111,25 +170,29 @@ ul{
 }
 
 .google-btn:hover {
-  background-color: #c33d2e;
+  background-color: rgb(255 255 255/var(--tw-bg-opacity));
 }
 
 /* Estilo del footer */
 .modal_form footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 1.5rem;
+  gap: .5rem;
+}
+.modal_form footer span {
+  color: #565655;
 }
 
 .modal_form footer a {
-  text-decoration: none;
-  color: #007bff;
-  font-size: 0.9rem;
+  color: inherit;
+  text-decoration: inherit;
+  font-size: 1rem;
+  letter-spacing: -.025em;
+  line-height: 1.5rem;
+  font-weight: 500;
+  text-decoration-line: underline;
 }
 
-.modal_form footer a:hover {
-  color: red;
-  text-decoration: underline;
-}
 

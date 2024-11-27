@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (!isset($_SESSION['recipe_info'])) {
   echo 'hola';
@@ -120,5 +121,8 @@ $action = 'update';
 
       </div>
     </form>
+
+
+    <?php require __DIR__ . '/template/comments.php'; ?>
   </div>
 </body>

@@ -3,16 +3,17 @@
 <div class="content_modal">
   <div class="modal_form">
     <header>
-      <h3>
-        Recuperacion de cuente
-      </h3>
+      <h2>
+        ¿Olvidaste tu contraseña?
+      </h2>
+      <p>
+        Revise su correo electrónico para completar el restablecimiento de su contraseña.
+      </p>
     </header>
     <main>
-      <p>Enviaremos un enlace de recuperación a</p>
       <!-- Formulario par inicio de sesion -->
       <form class="content_form" method="post" action="/src/controller/userController.php">
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
 
         <button type="submit" name="action" value="reset">Enviar enlace de recuperacion</button>
       </form>

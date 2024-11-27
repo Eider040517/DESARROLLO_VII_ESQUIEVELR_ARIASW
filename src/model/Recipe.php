@@ -167,4 +167,25 @@ class Recipe
       return false;
     }
   }
+
+  public function getAllRecipe()
+  {
+    $sql = "SELECT id , nombre , descripcion , categoria , tiempo_preparacion ,imagen , fecha_creacion 
+    FROM recetas ";
+    try {
+      if ($stm = $this->pdo->prepare($sql)) {
+        $success = $stm->execute();
+        $recetas = $stm->fetchAll(PDO::FETCH_ASSOC);
+        if ($success) {
+          return $recetas;
+        } else {
+          return "No se ubico receta";
+        }
+      }
+      unset($stm);
+    } catch (Exception $e) {
+      echo "Error al buscar el recetas: " . $e->getMessage();
+      return false;
+    }
+  }
 }

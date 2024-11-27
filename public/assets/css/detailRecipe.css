@@ -108,25 +108,7 @@ header > nav {
 }
 
 /* Botón para activar el dropdown */
-#userButton {
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-  background-color: #cccccc;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-}
 
-#userButton img svg {
-  pointer-events: none;
-  width: 100%;
-  height: auto;
-}
-
-#userButton:hover {
-  background-color: #0056b3;
-}
 
 /* Estilo del dropdown */
 .dropdown-menu {
@@ -159,9 +141,7 @@ header > nav {
   display: block;
 }
 
-.dropdown-menu ul li a:hover {
-  background-color: #f5f5f5;
-}
+
 
 /* style recipe */
 

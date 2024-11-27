@@ -183,10 +183,10 @@ if (isset($_GET['action'])) {
 
         </div>
     </form>
+    <?php
+    if ($action == 'update') {
+        require __DIR__ . '/template/comments.php';
+    }
+    ?>
 </div>
-
-
-
-
-
 <script src="/public/assets/js/recipe.js"></script>

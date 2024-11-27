@@ -15,12 +15,7 @@ class Password_Reset
       if ($stm = $this->pdo->prepare($sql)) {
         $stm->bindParam(":email", $email);
         $stm->bindParam(":token", $token);
-        $success = $stm->execute();
-        if ($success) {
-          echo "Token guardado";
-        } else {
-          echo "Token no guardado";
-        }
+        $stm->execute();
       }
       unset($stm);
     } catch (PDOException $e) {
@@ -35,12 +30,7 @@ class Password_Reset
     try {
       if ($stm = $this->pdo->prepare($sql)) {
         $stm->bindParam(":email", $email);
-        $success = $stm->execute();
-        if ($success) {
-          echo "Token eliminado ";
-        } else {
-          echo "Token no elinado";
-        }
+        $stm->execute();
       }
       unset($stm);
     } catch (PDOException $e) {

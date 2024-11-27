@@ -20,6 +20,6 @@
 
 </body>
 
-<script src="<?php echo BASE_URL; ?>/public/assets/js/session.js"></script>
+<script src="/public/assets/js/session.js"></script>
 
 </html>

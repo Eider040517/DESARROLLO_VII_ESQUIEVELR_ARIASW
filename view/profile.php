@@ -37,7 +37,7 @@ if ($errorMessages) {
       <div class="profile-img">
         <div>
           <span>
-            W
+            <?= htmlspecialchars(substr($_SESSION['username'], 0, 1)) ?>
           </span>
         </div>
       </div>

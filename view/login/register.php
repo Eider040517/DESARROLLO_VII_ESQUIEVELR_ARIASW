@@ -7,28 +7,33 @@ ob_start();
   <div class="modal_form">
     <header>
       <h2>
-        Register
+        Unirse a Cookpad
       </h2>
+      <p>
+        Mantén todas tus recetas favoritas en un solo lugar.
+      </p>
     </header>
     <main>
       <form class="content_form" id="content_form" method="post" action="/src/controller/userController.php">
         <input type="hidden" name="action" value="register">
-        <label for="username">Nombre de usario:</label>
-        <input type="text" id="username" name="username" required>
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="text" id="username" name="username" placeholder="Nombre" required>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="email" id="email" name="email" placeholder="Correo Eletrocio" required>
 
-        <label for="password">Repita la contraseña:</label>
-        <input type="password" id="password_repeat" name="password_repeat" required>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+
+        <input type="password" id="password_repeat" name="password_repeat" placeholder="Repite Contraseña" required>
 
         <div id="passwordError" style="color: red; display: none;">Las contraseñas no coinciden.</div>
 
         <button type="submit">Registrar</button>
       </form>
+      <div class="content-span">
+        <span class="border-span"></span>
+        <span class="px-sm">or</span>
+        <span class="border-span"></span>
+      </div>
       <ul>
         <li>
           <form action="" method="get">
@@ -39,7 +44,10 @@ ob_start();
       </ul>
 
     </main>
-    <footer></footer>
+    <footer>
+      <span>¿Ya tienes una cuenta? </span>
+      <a href="/view/login.php">Inicia Session</a>
+    </footer>
   </div>
   <div class="bg_modal"></div>
 </div>
